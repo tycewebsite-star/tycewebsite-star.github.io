@@ -1,12 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tim Yilmaz | Mortgage Agent</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tim Yilmaz | Mortgage Agent, Vine Group</title>
+<meta name="description" content="Tim Yilmaz is a mortgage agent with Vine Group, serving downtown Toronto and clients across Ontario with over 22 years of finance industry experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:      #142240;
+    --ink-2:    #1c2f57;
+    --parchment:#F6F3EC;
+    --parchment-2:#EFEAE0;
+    --gold:     #B08D4F;
+    --gold-soft:#D9C293;
+    --charcoal: #262421;
+    --slate:    #5B6B85;
+    --line: rgba(20,34,64,0.14);
+    --line-on-ink: rgba(217,194,147,0.35);
+    --radius: 2px;
+    --maxw: 1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--charcoal);
+    font-family:'Public Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:450;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:600;
+    color:var(--ink);
+    text-decoration:none;
+    letter-spacing:0.01em;
+  }
+  .brand span{color:var(--gold);}
+  .nav-links{
+    display:flex; gap:34px; align-items:center;
+    font-size:14px; font-weight:500;
+  }
+  .nav-links a{text-decoration:none; color:var(--ink); opacity:0.75; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-phone{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13.5px;
+    padding:9px 16px;
+    border:1px solid var(--ink);
+    border-radius:var(--radius);
+    text-decoration:none;
+    color:var(--ink);
+    white-space:nowrap;
+    transition:background .2s, color .2s;
+  }
+  .nav-phone:hover{background:var(--ink); color:var(--parchment);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(176,141,79,0.18), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:var(--parchment);
+    padding:88px 0 76px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    color:var(--parchment);
+    font-size:clamp(34px, 4.4vw, 54px);
+    line-height:1.08;
+    font-weight:450;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold-soft);
+  }
+  .hero-sub{
+    margin-top:20px;
+    max-width:46ch;
+    color:rgba(246,243,236,0.78);
+    font-size:16.5px;
+  }
+  .hero-cta{
+    margin-top:32px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-size:14.5px;
+    font-weight:600;
+    letter-spacing:0.01em;
+    transition:transform .15s ease, background .2s, color .2s;
+  }
+  .btn-primary{background:var(--gold); color:var(--ink);}
+  .btn-primary:hover{background:var(--gold-soft); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--line-on-ink); color:var(--parchment);}
+  .btn-ghost:hover{background:rgba(246,243,236,0.08);}
+
+  .hero-card{
+    background:rgba(246,243,236,0.06);
+    border:1px solid var(--line-on-ink);
+    border-radius:var(--radius);
+    padding:28px;
+  }
+  .portrait{
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:var(--radius);
+    background:
+      linear-gradient(160deg, rgba(217,194,147,0.25), rgba(20,34,64,0.4)),
+      repeating-linear-gradient(135deg, rgba(217,194,147,0.06) 0 2px, transparent 2px 14px);
+    border:1px solid var(--line-on-ink);
+    display:flex; align-items:flex-end;
+    position:relative;
+    overflow:hidden;
+  }
+  .portrait-label{
+    padding:14px 16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:rgba(246,243,236,0.55);
+    letter-spacing:0.06em;
+  }
+  .hero-card-meta{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:rgba(246,243,236,0.65);
+  }
+
+  /* ---------- LEDGER STRIP ---------- */
+  .ledger{
+    background:var(--parchment-2);
+    border-bottom:1px solid var(--line);
+    padding:26px 0;
+  }
+  .ledger-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:11px 0;
+    border-bottom:1px dotted var(--line);
+    font-size:14.5px;
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-figure{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    color:var(--ink);
+    font-weight:500;
+    min-width:70px;
+  }
+  .ledger-label{color:var(--slate); flex:1; padding:0 18px;}
+  .ledger-list{display:grid; grid-template-columns:1fr 1fr; gap:0 48px;}
+
+  /* ---------- SECTION ---------- */
+  section{padding:84px 0;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(26px, 3vw, 34px); margin-top:10px;}
+
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap:56px;
+  }
+  .about-grid p{color:var(--charcoal); margin:0 0 18px; font-size:15.5px;}
+  .pull{
+    border-left:2px solid var(--gold);
+    padding-left:22px;
+    font-family:'Fraunces', serif;
+    font-size:21px;
+    color:var(--ink);
+    font-weight:450;
+    line-height:1.45;
+  }
+  .credentials{
+    margin-top:28px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .credentials .row{
+    display:flex; justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--slate);
+    border-bottom:1px solid var(--line);
+    padding-bottom:8px;
+  }
+  .credentials .row span:last-child{color:var(--ink);}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--ink); color:var(--parchment);}
+  .process .section-head h2{color:var(--parchment);}
+  .process .eyebrow{color:var(--gold-soft);}
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line-on-ink);
+    border:1px solid var(--line-on-ink);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .step{background:var(--ink); padding:32px 28px;}
+  .step-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold-soft);
+    font-size:13px;
+  }
+  .step h3{color:var(--parchment); font-size:19px; margin-top:14px;}
+  .step p{color:rgba(246,243,236,0.7); font-size:14.5px; margin-top:10px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:40px;
+  }
+  .contact-card{
+    background:var(--parchment-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .contact-card h3{font-size:18px; margin-bottom:18px;}
+  .contact-line{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .contact-line:last-child{border-bottom:none;}
+  .contact-line a{text-decoration:none; color:var(--ink); font-weight:500;}
+  .contact-line a:hover{color:var(--gold);}
+  .contact-label{color:var(--slate); font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.04em;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:30px 0;
+    background:var(--parchment-2);
+  }
+  .footer-wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+  }
+  .footer-wrap p{margin:0; font-size:12.5px; color:var(--slate); font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    .nav-links{display:none;}
+    .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .ledger-list{grid-template-columns:1fr;}
+    .hero{padding:64px 0 52px;}
+    section{padding:60px 0;}
+  }
+</style>
 </head>
 <body>
-  <h1>Hello World</h1>
-  <p>Tim Yilmaz's new site is coming soon.</p>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">TIM YILMAZ <span>·</span> VINE GROUP</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#process">How It Works</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-phone" href="tel:14165086002">416.508.6002</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="padding-top:0;">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Mortgage Agent, Level 1 &middot; Vine Group</p>
+        <h1>Twenty-two years in finance,<br><em>put to work on your mortgage.</em></h1>
+        <p class="hero-sub">Tim Yilmaz helps homebuyers, investors, and homeowners across downtown Toronto secure the right mortgage &mdash; backed by direct access to a wide range of lenders and strategies built around your numbers, not a bank's quota.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:tim.yilmaz@vinegroup.ca">Email Tim</a>
+          <a class="btn btn-ghost" href="tel:14165086002">Call 416.508.6002</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="portrait">
+          <div class="portrait-label">PHOTO &mdash; REPLACE WITH TIM'S HEADSHOT</div>
+        </div>
+        <div class="hero-card-meta">
+          <span>Toronto, ON</span>
+          <span>ON LIC. 13511</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ledger">
+    <div class="wrap ledger-list">
+      <div>
+        <div class="ledger-row"><span class="ledger-label">Years in the finance industry</span><span class="ledger-figure mono">22</span></div>
+        <div class="ledger-row"><span class="ledger-label">Years as a mortgage specialist</span><span class="ledger-figure mono">7+</span></div>
+      </div>
+      <div>
+        <div class="ledger-row"><span class="ledger-label">Provinces licensed</span><span class="ledger-figure mono">ON &middot; SK</span></div>
+        <div class="ledger-row"><span class="ledger-label">Primary market served</span><span class="ledger-figure mono">Toronto</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about-grid reveal">
+      <div>
+        <p class="eyebrow">About Tim</p>
+        <h2>Started at the call centre.<br>Never lost the client focus.</h2>
+        <div class="credentials">
+          <div class="row"><span>Licence &mdash; Ontario</span><span>13511</span></div>
+          <div class="row"><span>Licence &mdash; Saskatchewan</span><span>512011</span></div>
+          <div class="row"><span>Language</span><span>English</span></div>
+          <div class="row"><span>Brokerage</span><span>Vine Group</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="pull">"He began his career as a call centre banking advisor at RBC &mdash; gaining a ground-level view of financing that still shapes how he works with clients today."</p>
+        <p>Tim brings over 22 years of experience in the finance industry, including more than seven years focused specifically on mortgages. That RBC start gave him a real understanding of financing, planning, and the mechanics of the mortgage and financial sectors &mdash; knowledge he now applies for clients across the downtown Toronto market, where he does the majority of his work.</p>
+        <p>He stays close to the market, tracking rate and lending shifts so his advice reflects what's actually happening, not what was true last year. Outside of work, Tim spends his time with his wife and children, and coaches basketball and soccer for young athletes in his community.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How It Works</p>
+        <h2>Three conversations to a closed mortgage.</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <p class="step-num mono">01</p>
+          <h3>Reach out</h3>
+          <p>Call or email Tim with where you're at &mdash; buying, refinancing, or renewing. No forms, no wait time.</p>
+        </div>
+        <div class="step">
+          <p class="step-num mono">02</p>
+          <h3>Get matched with lenders</h3>
+          <p>Tim compares options across his lender network and lays out the numbers plainly, so you know exactly what you're choosing.</p>
+        </div>
+        <div class="step">
+          <p class="step-num mono">03</p>
+          <h3>Close with confidence</h3>
+          <p>Tim manages the paperwork and timeline with you through to closing, and stays reachable after the fact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Start the conversation.</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <h3>Direct</h3>
+          <div class="contact-line"><span class="contact-label">PHONE</span><a href="tel:14165086002">416.508.6002</a></div>
+          <div class="contact-line"><span class="contact-label">EMAIL</span><a href="mailto:tim.yilmaz@vinegroup.ca">tim.yilmaz@vinegroup.ca</a></div>
+          <div class="contact-line"><span class="contact-label">LINKEDIN</span><a href="https://www.linkedin.com/in/tim-yilmaz-81930a42/" target="_blank" rel="noopener">View profile</a></div>
+        </div>
+        <div class="contact-card">
+          <h3>Vine Group &mdash; Toronto Office</h3>
+          <div class="contact-line"><span class="contact-label">ADDRESS</span><span>555 Bloor St. E., Toronto, ON M4W 1J1</span></div>
+          <div class="contact-line"><span class="contact-label">OFFICE</span><a href="tel:14164650649">416.465.0649</a></div>
+          <div class="contact-line"><span class="contact-label">TOLL-FREE</span><a href="tel:18444118463">1.844.411.8463</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-wrap">
+    <p>ON LIC. 13511 &nbsp;&middot;&nbsp; SK LIC. 512011 &nbsp;&middot;&nbsp; VINE GROUP MORTGAGE BROKERAGE</p>
+    <p>&copy; <span id="year"></span> Tim Yilmaz. Site built independently of Vine Group's official website.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
 </body>
 </html>
