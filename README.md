@@ -1,9 +1,7 @@
-# tycewebsite-star.github.io
-
 Personal landing page for **Tim Yilmaz**, Mortgage Agent (Level 1) with Tyce Group,
 serving downtown Toronto and clients across Ontario.
 
-**Live site:** https://tycewebsite-star.github.io
+**Live site:** [https://tycegroup.ca](https://tycegroup.ca/)
 
 ---
 
